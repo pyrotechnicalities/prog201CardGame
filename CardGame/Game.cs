@@ -13,6 +13,7 @@ namespace CardGame
         private SameOrDifferent SameOrDifferent;
         private HigherOrLower HigherOrLower;
         private HighestMatch HighestMatch;
+        private Credits credits;
         public Game()
         {
             string[] Suits = { "Swords", "Shields", "Bows", "Axes" };
@@ -47,7 +48,7 @@ namespace CardGame
         public void SelectGame()
         {
             // Some functionality assistance by Janell Baxter
-            WriteLine("What game would you like to play? 1: Same or Different 2: Higher or Lower 3: Highest Match");
+            WriteLine("What game would you like to play? 1: Same or Different 2: Higher or Lower 3: Highest Match. If you would like to see the credits, press 4.");
             string gameResponse = ReadLine();
             
             if (gameResponse == "1")
@@ -65,6 +66,11 @@ namespace CardGame
             {
                 HighestMatch = new HighestMatch(CurrentPlayer);
                 HighestMatch.StartGame();
+            }
+            else if (gameResponse == "4")
+            {
+                credits = new Credits();
+                credits.ShowCredits();
             }
             else
             {
